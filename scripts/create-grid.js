@@ -2,6 +2,7 @@ function createCell() {
     const cell = document.createElement('div')
     cell.classList.add('cell')
 
+    drawLine(cell)
     return cell
 }
 
