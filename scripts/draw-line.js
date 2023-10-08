@@ -13,6 +13,7 @@ function drawLine(cell) {
     cell.addEventListener('mousedown', () => {
         drawingInProgress = true
         cellClicked = true
+        paintCell(cell)
     })
 
     cell.addEventListener('mouseover', () => {
