@@ -1,3 +1,6 @@
+let isRandomColor = false
+let isEraser = false
+
 function creatColorPalette() {
     const colorDatas = [
         {
@@ -48,15 +51,16 @@ function creatColorPalette() {
 
     const showCurrentColor = color => {
         const currentColor = document.querySelector('.current-color')
-        if (color.name === 'random' || color.name === 'eraser') {
-            currentColor.innerText = color.name
-        } else {
-            currentColor.innerText = ''
-        }
+
+        currentColor.innerText =
+            color.name === 'random' || color.name === 'eraser' ? color.name : ''
+
         currentColor.style.backgroundColor = color.value
     }
 
+    let isToolButtons = false
     const selectColorButtons = document.querySelector('.color-palette-buttons')
+    const otherButtons = document.querySelector('.other-buttons')
 
     function createColorButton(color) {
         const button = document.createElement('button')
@@ -64,16 +68,39 @@ function creatColorPalette() {
         button.alt = color.name
         button.style.backgroundColor = color.name
 
+        if (color.name === 'random' || color.name === 'eraser') {
+            isToolButtons = true
+            button.classList.add(color.name)
+            button.innerHTML = color.name
+        }
+
         button.addEventListener('click', () => {
+            if (color.name === 'random') {
+                isRandomColor = true
+            } else {
+                isRandomColor = false
+            }
+
+            if (color.name === 'eraser') {
+                isEraser = true
+            } else {
+                isEraser = false
+            }
+
             showCurrentColor(color)
             changeSelectedColor(color.value)
         })
+
         return button
     }
 
     colorDatas.forEach(color => {
         const button = createColorButton(color)
 
-        selectColorButtons.appendChild(button)
+        if (isToolButtons) {
+            otherButtons.appendChild(button)
+        } else {
+            selectColorButtons.appendChild(button)
+        }
     })
 }

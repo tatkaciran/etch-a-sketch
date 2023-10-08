@@ -72,3 +72,10 @@ fieldset {
     flex-direction: column;
     gap: 8px;
 }
+
+.color-btn.random,
+.color-btn.eraser {
+    margin: 2px;
+    border-radius: var(--border-radius);
+    width: 90px;
+}

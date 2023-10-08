@@ -25,6 +25,18 @@ function paintCell(cell) {
         return count
     }
 
+    const getRandomColor = () => {
+        const getRandomValue = () => {
+            return Math.floor(Math.random() * 256)
+        }
+
+        let r = getRandomValue()
+        let g = getRandomValue()
+        let b = getRandomValue()
+
+        return `rgb(${r},${g},${b})`
+    }
+
     const addDarknessToColor = color => {
         const count = updateCountAttribute(cell)
 
@@ -46,7 +58,9 @@ function paintCell(cell) {
         return `rgb(${red},${green},${blue})`
     }
 
-    const color = addDarknessToColor(getSelectedColor())
+    const color = addDarknessToColor(
+        isRandomColor ? getRandomColor() : getSelectedColor()
+    )
 
     if (selectedWhiteColor) {
         resetCountAttribute(cell)
