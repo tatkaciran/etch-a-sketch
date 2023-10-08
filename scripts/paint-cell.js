@@ -41,7 +41,8 @@ function paintCell(cell) {
         const count = updateCountAttribute(cell)
 
         const addDarknessToValue = (val = 0) => {
-            val -= count * 28.4
+            val -= count * (val * 0.1111112)
+            console.log(val)
             return Math.min(Math.max(val, 0), 255)
         }
 
