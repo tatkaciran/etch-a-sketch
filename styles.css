@@ -1,4 +1,7 @@
 body {
+    --thin-border: 1px solid rgb(177, 177, 177);
+    --border-radius: 5px;
+    --size30px: 30px;
     padding: 0;
     margin: 0;
     height: 100vh;
@@ -16,7 +19,6 @@ body {
     align-items: center;
 }
 
-
 #grid {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -26,4 +28,35 @@ body {
     height: 100%;
     user-select: none;
     border: 1px solid rgb(177, 177, 177);
+}
+
+.palette {
+    width: 116px;
+    gap: var(--size30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.color-palette-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.color-btn {
+    border: var(--thin-border);
+    height: var(--size30px);
+    width: var(--size30px);
+    border-radius: var(--size30px);
+}
+
+.color-btn:focus {
+    border: 5px solid grey;
+}
+
+fieldset {
+    border-radius: var(--border-radius);
+    border: var(--thin-border);
 }

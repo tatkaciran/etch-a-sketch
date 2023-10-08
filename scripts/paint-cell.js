@@ -1,4 +1,11 @@
 function paintCell(cell) {
+    const white = 'rgb(255, 255, 255)'
+    const selectedWhiteColor = getSelectedColor() === white
+
+    function resetCountAttribute(cell) {
+        cell.setAttribute('count', (0).toString())
+    }
+
     function updateCountAttribute(cell) {
         let count = cell.getAttribute('count')
 
@@ -41,5 +48,9 @@ function paintCell(cell) {
 
     const color = addDarknessToColor(getSelectedColor())
 
-    cell.style.backgroundColor = color
+    if (selectedWhiteColor) {
+        resetCountAttribute(cell)
+    }
+
+    cell.style.backgroundColor = selectedWhiteColor ? white : color
 }

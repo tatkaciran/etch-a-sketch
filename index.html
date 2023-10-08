@@ -15,6 +15,10 @@
             defer
         ></script>
         <script
+            src="scripts/create-color-palette.js"
+            defer
+        ></script>
+        <script
             src="scripts/draw-line.js"
             defer
         ></script>
@@ -30,6 +34,12 @@
     </head>
     <body>
         <div class="container">
+            <div class="palette">
+                <fieldset class="color-palette">
+                    <legend>Colors</legend>
+                    <div class="color-palette-buttons"></div>
+                </fieldset>
+            </div>
             <div class="grid-container">
                 <div id="grid"></div>
             </div>

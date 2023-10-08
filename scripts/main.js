@@ -4,6 +4,7 @@ const getSelectedColor = () => selectedColor
 
 function main() {
     createGrid()
+    creatColorPalette()
 }
 
 main()
