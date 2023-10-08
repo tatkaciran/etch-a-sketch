@@ -15,7 +15,11 @@ function drawLine(cell) {
         cellClicked = true
     })
 
-    cell.addEventListener('mouseover', () => {})
+    cell.addEventListener('mouseover', () => {
+        if (drawingInProgress) {
+            paintCell(cell)
+        }
+    })
 
     cell.addEventListener('mouseup', () => {
         drawingInProgress = false
