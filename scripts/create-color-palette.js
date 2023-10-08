@@ -46,6 +46,16 @@ function creatColorPalette() {
         },
     ]
 
+    const showCurrentColor = color => {
+        const currentColor = document.querySelector('.current-color')
+        if (color.name === 'random' || color.name === 'eraser') {
+            currentColor.innerText = color.name
+        } else {
+            currentColor.innerText = ''
+        }
+        currentColor.style.backgroundColor = color.value
+    }
+
     const selectColorButtons = document.querySelector('.color-palette-buttons')
 
     function createColorButton(color) {
@@ -55,6 +65,7 @@ function creatColorPalette() {
         button.style.backgroundColor = color.name
 
         button.addEventListener('click', () => {
+            showCurrentColor(color)
             changeSelectedColor(color.value)
         })
         return button
