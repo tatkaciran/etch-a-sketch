@@ -81,3 +81,8 @@ fieldset {
     border-radius: var(--border-radius);
     width: 90px;
 }
+
+select {
+    border-radius: var(--border-radius);
+    padding: 5px;
+}

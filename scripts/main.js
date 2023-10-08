@@ -5,6 +5,7 @@ const getSelectedColor = () => selectedColor
 function main() {
     createGrid()
     creatColorPalette()
+    createGridResizeMenu()
 }
 
 main()
